@@ -6,6 +6,7 @@ import MainSec from './Components/MainSection/MainSec'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Movies from './Pages/Movies/Movies';
 import Series from './Pages/Series/Series';
+import Display from './Components/Display/Display';
 
 function App() {
 
@@ -59,6 +60,7 @@ function App() {
           <Route path='/' element={<MainSec />} />
           <Route path='/Movies' element={<Movies />} />
           <Route path='/Series' element={<Series />} />
+          <Route path='/display/:id' element={<Display />} />
         </Routes>
           
         </Router>
