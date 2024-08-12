@@ -1,70 +1,55 @@
-import React from "react";
-import './Movies.css'
-import { MovieData } from '../../DATA.json'
-import Card from "../../Components/Card/Card";
+import React, { useEffect, useState } from "react";
+import './Movies.css';
+import { MovieData } from '../../DATA';
+import CardMovie from "../../Components/Card/CardMovie";
+import { Link } from "react-router-dom";
 
 const Movies = () => {
-    return(
-        <>
-        <div className="hero">
-            <div className="hero-image">
-                <img src="./onlyMurder.png" alt="Hero" />
-                
-                <div className="hero-text">
-                    <h1 className="header">Latest Movies</h1>
-                </div>
-            </div>
 
-            <div className="cardContainerM">
+    const [shows, setShows] = useState([])
 
-            {MovieData.map((item) => (
-             <Card key={item.id} url={item.url}  />
-             
-      ))}
+    useEffect(() => {
+        const fetchShows = async () => {
+            const apiUrl = 'http://localhost:8888/MovieData?type=Movie'
+            try {
+                const res = await fetch(apiUrl)
+                const data = await res.json()
+                setShows(data) 
 
-              {/* <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 1" />
-              </div>
+            } catch (error) {
+                console.log('Error fetching data', error)
 
-              <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 2" />
-              </div>
+            }
+            }
 
-              <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 3" />
-              </div>
+            fetchShows();
+        }, [])
 
-              <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 4" />
-              </div>
+    
+  return (
+    <>
+      <div className="hero">
+        <div className="hero-image">
+          <img src="./onlyMurder.png" alt="Hero" />
+          <div className="hero-text">
+            <h1 className="header">Latest Movies</h1>
+          </div>
 
-              <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 1" />
-              </div>
+        </div>
+        <div className="cardContainerM">
+          {shows.map((movie) => (
+            // <CardMovie key={item.id} id={item.id} url={item.url} />
+            <div key={movie.id} className="Card">
+            <Link to={`/movie/${movie.id}`}>
+              <img src={movie.url} alt={movie.title} />
+              <h2>{movie.title}</h2>
+            </Link>
+          </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
 
-              <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 2" />
-              </div>
-
-              <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 3" />
-              </div>
-
-              <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 4" />
-              </div> */}
-
-</div>
-</div>
-
-
-
-</>
-
-
-  
-
-    )
-}
-
-export default Movies
+export default Movies;

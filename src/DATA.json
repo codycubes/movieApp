@@ -1,7 +1,7 @@
 {
     "MovieData": [
       {
-        "id": "1",
+        "id": 1,
         "title": "A hidden Life",
         "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
         "country": "USA",
@@ -10,7 +10,7 @@
         "url": "Movies/a-hidden-life-poster.png"
       },
       {
-        "id": "2",
+        "id": 2,
         "title": "Avengers Infinity War",
         "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
         "country": "USA",
@@ -19,7 +19,7 @@
         "url": "Movies/avengers.png"
       },
       {
-        "id": "3",
+        "id": 3,
         "title": "Death Of Dick Long",
         "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
         "country": "USA",
@@ -28,7 +28,7 @@
         "url": "Movies/death-of-dick-long.png"
       },
       {
-        "id": "4",
+        "id": 4,
         "title": "John Wick Chapter Three",
         "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
         "country": "USA",
@@ -38,7 +38,7 @@
 
       },
       {
-        "id": "5",
+        "id": 5,
         "title": "Joker",
         "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
         "country": "USA",
@@ -47,16 +47,16 @@
         "url": "Movies/Joker.png"
       },
       {
-        "id": "6",
+        "id": 6,
         "title": "Midsommar",
         "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
         "country": "USA",
         "year": "2024",
-        "type": "Movie",
+        "type": "Series",
         "url": "Movies/midsommar.png"
       },
       {
-        "id": "7",
+        "id": 7,
         "title": "Nightingale",
         "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
         "country": "USA",
@@ -65,62 +65,60 @@
         "url": "Movies/nightingale-1.png"
       },
       {
-        "id": "8",
+        "id": 8,
         "title": "Once Upon A top",
         "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
         "country": "USA",
         "year": "2024",
-        "type": "Movie",
+        "type": "Series",
         "url": "Movies/once-upon-a-time-in-hollywood.png"
-      }
+      },
 
-    ],
-
-    "SeriesData": [
         {
-            "id": "9",
+            "id": 9,
             "title": "Altered Carbon",
             "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
             "country": "USA",
             "year": "2024",
-            "type": "Movie",
+            "type": "Series",
             "url": "Series/altered carbon.png"
           },
           {
-            "id": "10",
+            "id": 10,
             "title": "Dark",
             "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
             "country": "USA",
             "year": "2024",
-            "type": "Movie",
+            "type": "Series",
             "url": "Series/dark.png"
           },
           {
-            "id": "11",
+            "id": 11,
             "title": "Fallout",
             "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
             "country": "USA",
             "year": "2024",
-            "type": "Movie",
+            "type": "Series",
             "url": "Series/FallOut.png"
           },
           {
-            "id": "12",
+            "id": 12,
             "title": "Last Of Us",
             "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
             "country": "USA",
             "year": "2024",
-            "type": "Movie",
+            "type": "Series",
             "url": "Series/LastOUs.png"
           },
           {
-            "id": "13",
+            "id": 13,
             "title": "Last Of Us",
             "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
             "country": "USA",
             "year": "2024",
-            "type": "Movie",
+            "type": "Series",
             "url": "Series/LastOUs.png"
           }
-    ]
+        ]
+    
   }

@@ -1,9 +1,31 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import './Series.css'
-import { SeriesData } from '../../DATA.json'
-import Card from "../../Components/Card/Card";
+// import { SeriesData } from '../../DATA'
+import CardSeries from "../../Components/Card/CardMovie";
+import { Link } from "react-router-dom";
+
 
 const Series = () => {
+    const [shows, setShows] = useState([])
+
+    useEffect(() => {
+        const fetchShows = async () => {
+            const apiUrl = 'http://localhost:8888/MovieData?type=Series'
+            try {
+                const res = await fetch(apiUrl)
+                const data = await res.json()
+                setShows(data) 
+
+            } catch (error) {
+                console.log('Error fetching data', error)
+
+            }
+            }
+
+            fetchShows();
+
+        }, [])
     return(
         <>
         <div className="hero">
@@ -18,42 +40,19 @@ const Series = () => {
 
             <div className="cardContainerM">
 
-            {SeriesData.map((item) => (
-             <Card key={item.id} url={item.url}  />
+            {shows.map((serie) => (
+            //  <CardSeries key={item.id} url={item.url}  />
+            <div key={serie.id} className="Card">
+            <Link to={`/serie/${serie.id}`}>
+              <img src={serie.url} alt={serie.title} />
+              <h2>{serie.title}</h2>
+            </Link>
+             </div>
+            
              
       ))}
 
-              {/* <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 1" />
-              </div>
-
-              <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 2" />
-              </div>
-
-              <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 3" />
-              </div>
-
-              <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 4" />
-              </div>
-
-              <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 1" />
-              </div>
-
-              <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 2" />
-              </div>
-
-              <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 3" />
-              </div>
-
-              <div className="Card">
-                  <img className="cardIMG" src="./SquidGames.png" alt="Article 4" />
-              </div> */}
+   
 
 </div>
 </div>

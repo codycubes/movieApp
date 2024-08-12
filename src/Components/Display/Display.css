@@ -1,0 +1,23 @@
+.Card {
+    width: 90%;
+    max-width: 170px;
+    height: auto;
+    max-height: 225px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: transform 0.5s ease-in-out;
+}
+
+.Card:hover {
+    transform: scale(1.05);
+}
+
+.cardIMG {
+    width: 100%;
+    height: auto;
+}
+
+.paragraph {
+    padding: 20px;
+    font-size: 1rem;
+}
