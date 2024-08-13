@@ -53,7 +53,7 @@ const Movies = () => {
         <div className="buttContainer">
           <button className="add" onClick={handleClick}>Add </button>
           </div>
-       
+          
           {shows.map((movie) => (
             // <CardMovie key={item.id} id={item.id} url={item.url} />
             <div key={movie.id} className="Card">

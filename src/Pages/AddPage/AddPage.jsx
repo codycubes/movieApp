@@ -9,8 +9,21 @@ const AddPage = () => {
   const [type, setType] = useState('movie'); // Default to movie
   const [year, setYear] = useState('');
   const [url, setUrl] = useState('');
+  const [imagePreview, setImagePreview] = useState(null);
 
   const navigate = useNavigate();
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setUrl(reader.result);
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -96,13 +109,21 @@ const AddPage = () => {
             </div>
 
             <div className="formGroup">
-              <label>Image URL</label>
+              <label>Image Upload</label>
               <input
-                type="text"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                required
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
               />
+              {imagePreview && (
+                <div>
+                  <img
+                    src={imagePreview}
+                    alt="Preview"
+                    style={{ width: '100px', height: '100px', objectFit: 'cover', marginTop: '10px' }}
+                  />
+                </div>
+              )}
             </div>
 
             <div className="formGroup">

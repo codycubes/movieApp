@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './Display.css'
 
 const DisplayMovie = () => {
   const { id } = useParams();
@@ -57,6 +58,7 @@ const DisplayMovie = () => {
       <h1>{item.title}</h1>
       <p>{item.description}</p>
       <p>{item.year}</p>
+      <img src={item.url} />
       <button onClick={handleEditToggle}>{isEditing ? 'Cancel' : 'Edit'}</button>
       <button onClick={handleDelete}>Delete</button>
 
