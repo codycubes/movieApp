@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import './Movies.css';
 import { MovieData } from '../../DATA';
 import CardMovie from "../../Components/Card/CardMovie";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Movies = () => {
 
     const [shows, setShows] = useState([])
 
     useEffect(() => {
-        const fetchShows = async () => {
+        const fetchShows = async () => {0  
             const apiUrl = 'http://localhost:8888/MovieData?type=Movie'
             try {
                 const res = await fetch(apiUrl)
@@ -25,6 +26,14 @@ const Movies = () => {
             fetchShows();
         }, [])
 
+        const navigate = useNavigate()
+
+        const handleClick = () => {
+          navigate(`/AddPage`);
+        };
+
+
+
     
   return (
     <>
@@ -35,8 +44,16 @@ const Movies = () => {
             <h1 className="header">Latest Movies</h1>
           </div>
 
+      
+          
+
         </div>
         <div className="cardContainerM">
+
+        <div className="buttContainer">
+          <button className="add" onClick={handleClick}>Add </button>
+          </div>
+       
           {shows.map((movie) => (
             // <CardMovie key={item.id} id={item.id} url={item.url} />
             <div key={movie.id} className="Card">

@@ -7,6 +7,7 @@ import Movies from './Pages/Movies/Movies';
 import Series from './Pages/Series/Series';
 import DisplayMovie from './Components/Display/DisplayMovie';
 import DisplaySeries from './Components/Display/DisplaySeries';
+import AddPage from './Pages/AddPage/AddPage';
 
 
 function App() {
@@ -30,6 +31,24 @@ function App() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+
+
+  // const apiUrl = 'http://localhost:8888/MovieData'
+
+
+  //  // Add New Job
+  //  const addShow = async (newShow) => {
+  //   const res = await fetch(apiUrl, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(newShow),
+  //   });
+  //   return;
+  // };
+
 
   return (
     <>
@@ -60,7 +79,9 @@ function App() {
           <Route path="/Movies" element={<Movies />} />
           <Route path="/Series" element={<Series />} />
           <Route path="/movie/:id" element={<DisplayMovie />} />
-          <Route path="/serie/:id" element={<DisplaySeries />} />
+          <Route path="/serie/:id" element={<DisplayMovie />} />
+          <Route path='/AddPage' element={<AddPage />} />
+
         </Routes>
       </Router>
     </>
