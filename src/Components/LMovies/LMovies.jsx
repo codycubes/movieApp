@@ -26,6 +26,10 @@ export const LMovies = () => {
     navigate(`/AddPage`);
   };
 
+  const moreMoviesClick = () => {
+    navigate('/Movies')
+  }
+
   return (
     <>
       <div className="relative w-full bg-gray-100 p-10 md:px-40">
@@ -61,7 +65,7 @@ export const LMovies = () => {
         </div>
 
         <div className="flex justify-end mt-10">
-          <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
+          <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300" onClick={moreMoviesClick}>
             More
           </button>
         </div>

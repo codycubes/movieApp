@@ -52,7 +52,7 @@ const AddPage = () => {
       {/* Top half with image */}
       <div className="w-full h-64 bg-cover bg-center" style={{ backgroundImage: `url('SquidGames.png')` }}>
         <div className="flex justify-center items-center h-full">
-          <h2 className="text-white text-4xl font-bold">ADD A MOVIE/SERIES</h2>
+          <h2 className="text-white text-4xl font-bold">Add A Movie/Series</h2>
         </div>
       </div>
 

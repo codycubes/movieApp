@@ -54,7 +54,7 @@ const DisplayMovie = () => {
 
   if (!item) return <div className="text-center text-gray-500">Loading...</div>;
 
-  console.log(item.url)
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Top Image with Title */}
@@ -62,7 +62,7 @@ const DisplayMovie = () => {
         <img
           src={item.url} // Provide a fallback image
           alt={item.title}
-          className="object-cover w-full h-full opacity-50"
+          className="object-cover w-full h-full opacity-80"
         />
         <h1 className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-white">
           {item.title}
@@ -74,6 +74,7 @@ const DisplayMovie = () => {
         <div className="max-w-6xl w-full mt-8 flex flex-col md:flex-row items-center">
           <img className="w-64 h-auto rounded-lg shadow-md mb-6 md:mb-0 md:mr-8" key={item.id} src={item.url} alt={item.title} />
           <div className="text-left">
+            <h1 className='text-xl font-bold'>{item.title}</h1>
             <p className="text-gray-700 mb-4">{item.description}</p>
             <p className="text-gray-600"><strong>Country:</strong> {item.country}</p>
             <p className="text-gray-600"><strong>Genre:</strong> {item.genre}</p>

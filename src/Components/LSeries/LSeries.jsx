@@ -26,6 +26,10 @@ export const LSeries = () => {
     navigate(`/AddPage`);
   };
 
+  const moreSeriesClick = () => {
+    navigate('/Series')
+  }
+
   return (
     <>
       <div className="relative w-full bg-gray-100 p-10 md:px-40">
@@ -61,7 +65,7 @@ export const LSeries = () => {
         </div>
 
         <div className="flex justify-end mt-10">
-          <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
+          <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300" onClick={moreSeriesClick}>
             More
           </button>
         </div>
