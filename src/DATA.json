@@ -91,13 +91,11 @@
       "url": "Series/dark.png"
     },
     {
-      "id": "11",
       "title": "Fallout",
-      "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
-      "country": "USA",
+      "description": "haven't watched this yet",
       "year": "2024",
-      "type": "Series",
-      "url": "Series/FallOut.png"
+      "url": "Series/FallOut.png",
+      "id": "11"
     },
     {
       "id": "12",
@@ -117,6 +115,5 @@
       "type": "Series",
       "url": "Series/LastOUs.png"
     }
-
   ]
 }

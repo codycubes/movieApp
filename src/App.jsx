@@ -1,79 +1,23 @@
 import { useState, useEffect } from 'react';
-import './App.css';
-// import { Navbar } from './Components/Navbar/Navbar';
-import MainSec from './Components/MainSection/MainSec';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import MainSec from './Components/MainSection/MainSec';
 import Movies from './Pages/Movies/Movies';
 import Series from './Pages/Series/Series';
 import DisplayMovie from './Components/Display/DisplayMovie';
-import DisplaySeries from './Components/Display/DisplaySeries';
+// import DisplaySeries from './Components/Display/DisplaySeries';
 import AddPage from './Pages/AddPage/AddPage';
-
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer';
 
 function App() {
-  const [scrolling, setScrolling] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolling(true);
-      } else {
-        setScrolling(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-
-
-  // const apiUrl = 'http://localhost:8888/MovieData'
-
-
-  //  // Add New Job
-  //  const addShow = async (newShow) => {
-  //   const res = await fetch(apiUrl, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(newShow),
-  //   });
-  //   return;
-  // };
 
 
   return (
     <>
-      {/* <Navbar /> */}
-      {/* <MainSec /> */}
-
       <Router>
-        <nav className={`navbar ${scrolling ? 'navbar-scroll' : ''}`}>
-          <div className="logoContainer">
-            <div className="Logo1">
-              <Link to="/">Enter-Stream</Link>
-            </div>
-          </div>
-          <div className={`links ${menuOpen ? 'open' : ''}`}>
-            <Link to="/Movies">Movies</Link>
-            <Link to="/Series">Series</Link>
-          </div>
-          <button className="Subscribe">Subscribe</button>
-          <div className={`hamburger ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </nav>
-
+        <Navbar />
+       
+        
         <Routes>
           <Route path="/" element={<MainSec />} />
           <Route path="/Movies" element={<Movies />} />
@@ -81,8 +25,9 @@ function App() {
           <Route path="/movie/:id" element={<DisplayMovie />} />
           <Route path="/serie/:id" element={<DisplayMovie />} />
           <Route path='/AddPage' element={<AddPage />} />
-
         </Routes>
+
+        <Footer />
       </Router>
     </>
   );

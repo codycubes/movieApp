@@ -34,7 +34,7 @@ const AddPage = () => {
       country,
       type,
       year,
-      image: url
+      image: url,
     };
 
     try {
@@ -48,90 +48,129 @@ const AddPage = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div className='formSection'>
-          <div className='text'>
-            <label>Add A Movie/Series</label>
-          </div>
+    <div className="min-h-screen bg-gray-100">
+      {/* Top half with image */}
+      <div className="w-full h-64 bg-cover bg-center" style={{ backgroundImage: `url('SquidGames.png')` }}>
+        <div className="flex justify-center items-center h-full">
+          <h2 className="text-white text-4xl font-bold">ADD A MOVIE/SERIES</h2>
+        </div>
+      </div>
 
-          <div className='group'>
-            <div className="formGroup">
-              <label>Movie/Series Name</label>
+      {/* Form container */}
+      <div className="flex justify-center items-center mt-4 px-4">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white p-8 shadow-lg rounded-lg w-full max-w-4xl"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="mb-6">
+              <label className="block text-lg font-medium text-gray-700">
+                Movie/Series Name
+              </label>
               <input
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                className="mt-2 p-3 border border-gray-300 rounded-lg w-full"
                 required
               />
             </div>
 
-            <div className="formGroup">
-              <label>Description</label>
+            <div className="mb-6">
+              <label className="block text-lg font-medium text-gray-700">
+                Description
+              </label>
               <input
                 type="text"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+                className="mt-2 p-3 border border-gray-300 rounded-lg w-full"
                 required
               />
             </div>
 
-            <div className="formGroup">
-              <label>Country</label>
+            <div className="mb-6">
+              <label className="block text-lg font-medium text-gray-700">
+                Country
+              </label>
               <input
                 type="text"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
+                className="mt-2 p-3 border border-gray-300 rounded-lg w-full"
                 required
               />
             </div>
 
-            <div className="formGroup">
-              <label>Year</label>
+            <div className="mb-6">
+              <label className="block text-lg font-medium text-gray-700">
+                Year
+              </label>
               <input
                 type="text"
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
+                className="mt-2 p-3 border border-gray-300 rounded-lg w-full"
                 required
               />
             </div>
 
-            <div className="formGroup">
-              <label>Type</label>
-              <select
-                value={type}
-                onChange={(e) => setType(e.target.value)}
-                required
-              >
-                <option value="movie">Movie</option>
-                <option value="series">Series</option>
-              </select>
+            <div className="mb-6">
+              <label className="block text-lg font-medium text-gray-700">
+                Type
+              </label>
+              <div className="flex items-center mt-2">
+                <input
+                  type="radio"
+                  value="movie"
+                  checked={type === 'movie'}
+                  onChange={() => setType('movie')}
+                  className="mr-2"
+                />
+                <span className="mr-4">Movie</span>
+                <input
+                  type="radio"
+                  value="series"
+                  checked={type === 'series'}
+                  onChange={() => setType('series')}
+                  className="mr-2"
+                />
+                <span>Series</span>
+              </div>
             </div>
 
-            <div className="formGroup">
-              <label>Image Upload</label>
+            <div className="mb-6">
+              <label className="block text-lg font-medium text-gray-700">
+                Upload Movie Poster
+              </label>
               <input
                 type="file"
                 accept="image/*"
                 onChange={handleFileChange}
+                className="mt-2 p-3 border border-gray-300 rounded-lg w-full"
               />
               {imagePreview && (
-                <div>
+                <div className="mt-4">
                   <img
                     src={imagePreview}
                     alt="Preview"
-                    style={{ width: '100px', height: '100px', objectFit: 'cover', marginTop: '10px' }}
+                    className="w-24 h-32 object-cover"
                   />
                 </div>
               )}
             </div>
-
-            <div className="formGroup">
-              <button type="submit">Submit</button>
-            </div>
           </div>
-        </div>
-      </form>
+
+          <div className="text-center mt-8">
+            <button
+              type="submit"
+              className="px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
