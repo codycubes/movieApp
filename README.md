@@ -1,5 +1,5 @@
-Run npm install
+1. npm install
 
-npm run server 
+2. npm run server 
 
-then finally, npm run  dev
+3. npm run  dev
