@@ -32,7 +32,7 @@ const Movies = () => {
                 <div className="relative w-full h-[50vh] overflow-hidden">
                     <img src="./Movies/john-wick-chapter-three.png" alt="Hero" className="w-full  object-cover"/>
                     <div className="absolute inset-0 flex justify-center items-center text-white">
-                        <h1 className="text-4xl font-normal mb-8">Latest Movies</h1>
+                        <h1 className="text-5xl font-normal mb-8">LATEST MOVIES</h1>
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@ const Movies = () => {
                             className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300" 
                             onClick={handleClick}
                         >
-                            Add
+                            ADD
                         </button>
                     </div>
                     {shows.map((movie) => (

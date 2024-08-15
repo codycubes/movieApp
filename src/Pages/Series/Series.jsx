@@ -32,7 +32,7 @@ const Series = () => {
                 <div className="relative w-full h-[50vh] overflow-hidden">
                     <img src="./Series/FallOut.png" alt="Hero" className="w-full h-full  object-cover"/>
                     <div className="absolute inset-0 flex justify-center items-center text-white">
-                        <h1 className="text-4xl font-normal mb-8">Latest Series</h1>
+                        <h1 className="text-4xl font-normal mb-8">LATEST SERIES</h1>
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@ const Series = () => {
                             className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300" 
                             onClick={handleClick}
                         >
-                            Add
+                            ADD
                         </button>
                     </div>
                     {shows.map((movie) => (

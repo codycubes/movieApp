@@ -1,34 +1,42 @@
-const express = require('express');
-const multer = require('multer');
-const path = require('path');
+import express from 'express';
+import multer from 'multer';
+import cors from 'cors';
+import path from 'path';
+import fs from 'fs';
 
 const app = express();
 
-// Set storage engine
+// Ensure the uploads directory exists
+const uploadDir = path.join(__dirname, 'public', 'uploads');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
+// Configure Multer storage
 const storage = multer.diskStorage({
-  destination: './public',
-  filename: function(req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  destination: (req, file, cb) => {
+    cb(null, uploadDir);
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}-${file.originalname}`);
   }
 });
 
-// Init upload
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 1000000 },
-}).single('file');
+const upload = multer({ storage });
 
-app.post('/upload', (req, res) => {
-  upload(req, res, (err) => {
-    if (err) {
-      return res.status(500).json({ msg: 'Error uploading file' });
-    }
-    res.json({ filePath: `/${req.file.filename}` });
-  });
+app.post('/upload', upload.single('file'), (req, res) => {
+  if (!req.file) {
+    return res.status(400).send('No file uploaded.');
+  }
+  res.status(200).json({ filePath: `/uploads/${req.file.filename}` });
 });
 
-app.use(express.static('public'));
-
-app.listen(5001, () => {
-  console.log('Upload server started on http://localhost:5001');
+app.listen(5555, () => {
+  console.log('Server is running on port 5555');
 });
