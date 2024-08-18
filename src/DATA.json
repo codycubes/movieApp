@@ -13,7 +13,8 @@
       "description": "We are seeking a talented Front-End Developer to join our team in Boston ",
       "year": "2022",
       "url": "/Movies/avengers.png",
-      "id": "2"
+      "id": "2",
+      "type": "Movie"
     },
     {
       "id": "3",
@@ -36,6 +37,7 @@
       "title": "JOKER",
       "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
       "year": "2024",
+      "type": "Movie",
       "url": "/Movies/Joker.png",
       "id": "5"
     },
