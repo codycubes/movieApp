@@ -3,59 +3,62 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const AddPage = () => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [country, setCountry] = useState('');
-  const [type, setType] = useState('movie'); 
-  const [year, setYear] = useState('');
-  const [url, setUrl] = useState('');
-  const [imagePreview, setImagePreview] = useState(null);
+  // State variables to manage form inputs
+  const [title, setTitle] = useState(''); // Movie/Series title
+  const [description, setDescription] = useState(''); // Description of the movie/series
+  const [country, setCountry] = useState(''); // Country of origin
+  const [type, setType] = useState('movie'); // Type of content, default is "movie"
+  const [year, setYear] = useState(''); // Year of release
+  const [url, setUrl] = useState(''); // URL for the image
+  const [imagePreview, setImagePreview] = useState(null); // Preview of the selected image file
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // For navigating between routes
 
+  // Function to handle file input changes (when the user uploads an image)
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setUrl(reader.result);
-        setImagePreview(reader.result);
+        setUrl(reader.result); // Set the image URL to the file content
+        setImagePreview(reader.result); // Set the image preview to show the selected image
       };
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(file); // Read the file as a data URL
     }
   };
 
+  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    // Fetch existing data to determine the last ID
     try {
+      // Fetch existing data to determine the last ID
       const response = await axios.get('http://localhost:8888/MovieData');
       const existingData = response.data;
   
-      // Find the highest ID in the existing data
+      // Determine the last ID to increment for the new entry
       const lastId = existingData.length > 0
-        ? Math.max(...existingData.map(item => item.id))
+        ? Math.max(...existingData.map(item => item.id)) // Get the highest ID from the existing data
         : 0;
   
+      // Construct the new entry object
       const newEntry = {
-        id: lastId + 1, // Increment ID
+        id: lastId + 1, // Increment the last ID by 1
         title,
         description,
         country,
         type,
         year,
-        url, 
-
-        
+        url, // Image URL
       };
   
+      // Submit the new entry to the JSON server
       await axios.post('http://localhost:8888/MovieData', newEntry);
-      alert('Entry added successfully!');
-      navigate('/'); // Redirect to the home page or any other page after submission
+      alert('Entry added successfully!'); // Success message
+      navigate('/'); // Redirect to the home page after submission
     } catch (error) {
-      console.error('There was an error submitting the data!', error);
-      alert('Failed to submit the data. Please try again.');
+      console.error('There was an error submitting the data!', error); // Log any errors
+      alert('Failed to submit the data. Please try again.'); // Error message for the user
     }
   };
   
@@ -95,6 +98,7 @@ const AddPage = () => {
 
           {/* Input Fields Section */}
           <div className="flex flex-col space-y-4">
+            {/* Movie/Series Name */}
             <div>
               <label className="block text-lg font-medium text-gray-700">
                 Movie/Series Name
@@ -108,6 +112,7 @@ const AddPage = () => {
               />
             </div>
 
+            {/* Description */}
             <div>
               <label className="block text-lg font-medium text-gray-700">
                 Description
@@ -121,6 +126,7 @@ const AddPage = () => {
               />
             </div>
 
+            {/* Country */}
             <div>
               <label className="block text-lg font-medium text-gray-700">
                 Country
@@ -134,6 +140,7 @@ const AddPage = () => {
               />
             </div>
 
+            {/* Year */}
             <div className="mb-6">
               <label className="block text-lg font-medium text-gray-700">
                 Year
@@ -147,6 +154,7 @@ const AddPage = () => {
               />
             </div>
 
+            {/* Type (Movie or Series) */}
             <div>
               <label className="block text-lg font-medium text-gray-700">
                 Type
@@ -175,10 +183,11 @@ const AddPage = () => {
               </div>
             </div>
 
+            {/* Save Button */}
             <div className="text-center mt-8">
               <button
                 type="submit"
-                className="w-full selection:px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
+                className="w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
               >
                 Save
               </button>

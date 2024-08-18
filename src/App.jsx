@@ -17,7 +17,6 @@ function App() {
       <Router>
         <Navbar />
        
-        
         <Routes>
           <Route path="/" element={<MainSec />} />
           <Route path="/Movies" element={<Movies />} />
