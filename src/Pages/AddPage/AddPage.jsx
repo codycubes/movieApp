@@ -49,7 +49,7 @@ const AddPage = () => {
         country,
         type,
         year,
-        url, // Image URL
+        url
       };
   
       // Submit the new entry to the JSON server
