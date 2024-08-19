@@ -46,14 +46,14 @@ export const LSeries = () => {
         </div>
 
         {/* Button to add a new series, aligned to the right */}
-        <div className="flex justify-end mt-4">
+        {/* <div className="flex justify-end mt-4">
           <button
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
             onClick={handleClick}
           >
             ADD
           </button>
-        </div>
+        </div> */}
 
         {/* Container for displaying the fetched series */}
         <div className="flex flex-wrap justify-around mt-10 gap-8">

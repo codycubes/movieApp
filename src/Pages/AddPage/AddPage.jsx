@@ -43,7 +43,7 @@ const AddPage = () => {
   
       // Construct the new entry object
       const newEntry = {
-        id: lastId + 1, // Increment the last ID by 1
+        id: (lastId + 1).toString(),
         title,
         description,
         country,
